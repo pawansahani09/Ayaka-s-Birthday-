@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Ayaka 🎀</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to right, #ffe6f0, #ffd6e7);
+      overflow-x: hidden;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      background: #ffccdd;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 6px #ffb6c1;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      height: 50px;
+    }
+
+    .navbar .logo {
+      font-size: 1.2rem;
+      color: #cc0066;
+    }
+
+    .navbar .emoji {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .highlight-name {
+      color: #cc0066;
+      font-size: 2.5rem;
+    }
+
+    .ayaka-text {
+      background: linear-gradient(to right, #ff66cc, #ff3399, #cc0066);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 3rem;
+      animation: heartPop 1s infinite alternate;
+      /* Removed text-transform to show manual Capital A */
+    }
+
+    @keyframes heartPop {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .kripa-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #ff99cc;
+      object-fit: cover;
+      box-shadow: 0 0 15px #ff99cc;
+      margin-bottom: 20px;
+    }
+
+    .reveal-btn {
+      padding: 12px 25px;
+      font-size: 1.2rem;
+      background: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff99cc;
+      transition: 0.3s;
+    }
+
+    .reveal-btn:hover {
+      background: #cc0066;
+    }
+
+    .surprise {
+      font-size: 1.2rem;
+      color: #cc0066;
+      background: #fff0f5;
+      padding: 18px;
+      margin-top: 25px;
+      border-radius: 18px;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      animation: pop 1s;
+    }
+
+    .emojis {
+      font-size: 2rem;
+      margin-top: 20px;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 888;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: #ffe6f0;
+      text-align: center;
+      padding: 12px;
+      margin-top: 30px;
+    }
+
+    .footer img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-bottom: 5px;
+    }
+
+    .footer p {
+      font-size: 0.9rem;
+      margin: 4px 0;
+    }
+
+    .social-icons a {
+      margin: 0 6px;
+      text-decoration: none;
+    }
+
+    .social-icons img {
+      width: 20px;
+      height: 20px;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🎀 NAVBAR -->
+<div class="navbar">
+  <div class="logo">🎉 Ayaka's Day</div>
+  <div class="emoji">💖</div>
+</div>
+
+<!-- 🎁 MAIN CONTENT -->
+<div class="container">
+  <h1>
+    <span class="highlight-name">Happy Birthday</span>
+    <span class="ayaka-text">Ayaka 🎀</span>
+  </h1>
+  <img src="kripa.jpg" alt="Kripa" class="kripa-img" />
+  <br>
+  <button class="reveal-btn" onclick="revealSurprise()">Tap to reveal your surprise 🎁</button>
+
+  <div id="surpriseBox" style="display: none;">
+    <div class="surprise">
+      Dear Ayaka 🎀,<br />
+      Happy Birthday Dear😘🤗💖<br/>
+      Today isn’t just your birthday… it’s a reminder of how lucky the world is to have someone as kind, beautiful, and genuine as you. 💖✨<br />
+      🌸 I wish you love, happiness and endless joy! 🌷💝<br>
+      You have a smile that lights up the darkest days and a heart that touches everyone around you. ✨<br>
+      I hope your day is filled with laughter, love, and every little thing that makes you smile. 🌸<br>
+      You deserve all the happiness in the universe, and I promise I’ll always be around to make your days even more special.<br>
+      Keep being the amazing person you are, and never forget how truly special you are to me. 🌷
+    </div>
+    <div class="emojis">💐🎀⚘🌸🌷💖🎉🎁🎊</div>
+  </div>
+</div>
+
+<!-- 🎇 CONFETTI -->
+<canvas id="confetti-canvas"></canvas>
+<audio id="bgmusic" src="kripa.mp3" autoplay loop></audio>
+
+<!-- 🦶 FOOTER -->
+<div class="footer">
+  <img src="s.png" alt="Pawan😘" />
+  <p>Made with ❤️ by Er.Pawan</p>
+  <div class="social-icons">
+    <a href="https://facebook.com/yourprofile" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"/>
+    </a>
+    <a href="https://instagram.com/yourprofile" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"/>
+    </a>
+    <a href="https://twitter.com/yourprofile" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"/>
+    </a>
+    <a href="https://m.me/yourprofile" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="Messenger"/>
+    </a>
+  </div>
+</div>
+
+<!-- 🎉 SCRIPT -->
+<script>
+  function revealSurprise() {
+    document.getElementById("surpriseBox").style.display = "block";
+    startConfetti();
+  }
+
+  // Confetti code
+  const canvas = document.getElementById("confetti-canvas");
+  const ctx = canvas.getContext("2d");
+  let pieces = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  function createPiece() {
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      size: Math.random() * 10 + 5,
+      color: `hsl(${Math.random() * 360}, 100%, 75%)`,
+      speed: Math.random() * 3 + 2
+    };
+  }
+
+  for (let i = 0; i < 150; i++) {
+    pieces.push(createPiece());
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let piece of pieces) {
+      ctx.beginPath();
+      ctx.arc(piece.x, piece.y, piece.size, 0, Math.PI * 2);
+      ctx.fillStyle = piece.color;
+      ctx.fill();
+      piece.y += piece.speed;
+      if (piece.y > canvas.height) {
+        piece.y = -piece.size;
+      }
+    }
+    requestAnimationFrame(drawConfetti);
+  }
+
+  function startConfetti() {
+    drawConfetti();
+  }
+
+  // Music autoplay fix for mobile
+  window.addEventListener('click', () => {
+    const audio = document.getElementById("bgmusic");
+    if (audio.paused) {
+      audio.play().catch(() => {});
+    }
+  });
+</script>
+
+</body>
+</html>
